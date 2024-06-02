@@ -1,0 +1,38 @@
+body{
+    background-color: black;
+}
+
+h2{
+    font-weight: bold;
+}
+
+hr{
+    color: black;
+    border:2px solid;
+}
+
+a{
+    text-decoration: none;
+}
+
+.title-pic{
+    width: 50%;
+    margin-left: 25%;
+  }
+  .title-pic-2{
+    width: 50%;
+    margin-left: 25%;
+    /* margin-top: 10%; */
+  }
+
+ 
+
+  .box{
+    background-image: linear-gradient(to right, #CC00CC , #660066);
+    margin: auto;
+    text-align: center;
+    width: 50%;
+    height: 60%;
+    padding:5%;
+    margin-top: 25%;
+  }

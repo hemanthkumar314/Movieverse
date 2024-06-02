@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+ .btn1{
+  background-color: black;
+  border-radius: 5%;
+    border: 3px solid #CC00CC;
+    color:#CC00CC;
+    font-size: 25px;
+    padding: 10px 20px;
+    margin-left:150px;
+    margin-right: 10px;
+   margin-top: 25px;
+    
+}
+ .btn2{
+  background-color: black;
+    border-radius: 5%;
+    border: 3px solid #CC00CC;
+    color:#CC00CC;
+    font-size: 25px;
+    padding: 10px 20px;
+    margin-left: 20px;
+    margin-right: 100px;
+    margin-top: 25px;
+    
+}
+
+.btn1:hover {
+  background-color: white;
+  border-radius: 5%;
+    color: black;
+    border: 3px solid  #CC00CC;
+    transition: all 0.3s ease 0s;
+}
+.btn2:hover {
+  background-color: white;
+  border-radius: 5%;
+    color: black;
+    border: 3px solid  #CC00CC;
+    transition: all 0.3s ease 0s;
+}
+.container
+{
+    font-family: Georgia,serif;
+    background-image: linear-gradient(to right, #CC00CC , #660066);
+    color: black;
+    height: 170px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding:20px;
+    text-align: center;
+    margin-top: 300px;
+}
+
+p{
+    margin-left: -40px;
+    font-family: Georgia,serif;
+    color:black;
+    font-size: 30px;
+   
+}
+.sub
+{
+    display: flex;
+
+}
+body {
+    background: black;
+    text-align: center;
+    color:#FFF;
+    font-family: Georgia,serif;
+  }
+  .info
+  {
+    background-color: grey;
+    font-size: 20px;
+    color:#FFF;
+    width:1000px;
+    margin-left: 20px;
+    padding:5px;
+    height:80px;
+    margin-top: 50px;
+    text-align: left;
+  }
+  table{
+    background-color: grey;
+    color:#FFF;
+    padding:10px;
+    margin: 10px;
+  }
+  td{
+    padding: 5px;
+    background-color: lightgrey;
+    color:#CC00CC;
+    width: 80px;
+    margin:2px;
+    height:100px;
+
+  }
+  .desc
+  {
+    width:350px;
+  }
