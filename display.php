@@ -129,6 +129,7 @@
                                                 <h5 class="imdb">'. $row["imdb"]. '</h5>
                                                 <h5 class="rate">'. $row["rating"]. '</h5>
                                                 <h5 class="dur">'. $row["duration"]. '</h5>
+                                                <h6 class="actor" style="margin-left: 10px;">Cast : '.$row["actor"].','.$row["actress"].'</h6>
                                                 <h6 class="des" style="margin-left: 10px;">'.$row['description'].'</h6>
                                                 <h5 style="margin-left: 10px;">'.$row['mov_id'].'</h5>
                                             </div>
@@ -166,6 +167,7 @@
                                         <h5 class="imdb">'. $row["imdb"]. '</h5>
                                         <h5 class="rate">'. $row["rating"]. '</h5>
                                         <h5 class="dur">'. $row["duration"]. 'min</h5>
+                                        <h6 class="actor" style="margin-left: 10px;">Cast : '.$row["actor"].','.$row["actress"].'</h6>
                                         <h6 class="des" style="margin-left: 10px;">'.$row['description'].'</h6>
                                         <h5 style="margin-left: 10px;">'.$row['mov_id'].'</h5>
                                         <form action="edit.php" method="POST">
@@ -196,6 +198,7 @@
                                                 <h5 class="imdb">'. $row["imdb"]. '</h5>
                                                 <h5 class="rate">'. $row["rating"]. '</h5>
                                                 <h5 class="dur">'. $row["duration"]. '</h5>
+                                                <h6 class="actor" style="margin-left: 10px;">Cast : '.$row["actor"].','.$row["actress"].'</h6>
                                                 <h6 class="des" style="margin-left: 10px;">'.$row['description'].'</h6>
                                                 <h5 style="margin-left: 10px;">'.$row['mov_id'].'</h5>
                                             </div>

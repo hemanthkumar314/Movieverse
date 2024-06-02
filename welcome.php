@@ -346,7 +346,7 @@ else{
                     <!-- <div class="slider1"> -->
                     <div class="slide s1" style="background-image: url('images/Batman2022.jpg');">
                         <div>
-                        <form action="genre.php" method="POST">
+                        <form action="welcome.php" method="POST">
                             <select name="genre-value" id="select-val"  style="display:none;" required>
                             <option>Drama</option>
                             </select>
@@ -356,7 +356,7 @@ else{
                     </div>
                     <div class="slide s2" style="background-image: url('images/after.jpg');">
                         <div>
-                        <form action="genre.php" method="POST" >
+                        <form action="welcome.php" method="POST" >
                             <select name="genre-value" id="select-val"  style="display:none;" required>
                             <option>Romance</option>
                             </select>
@@ -366,7 +366,7 @@ else{
                     </div>
                     <div class="slide s3" style="background-image: url('images/bang.jpg');">
                         <div>
-                        <form action="genre.php" method="POST">
+                        <form action="welcome.php" method="POST">
                             <select name="genre-value" id="select-val"  style="display:none;" required>
                             <option>Action</option>
                             </select>
@@ -376,7 +376,7 @@ else{
                     </div>
                     <div class="slide s4" style="background-image: url('images/DarkJonas.jpg');">
                         <div >
-                        <form action="genre.php" method="POST">
+                        <form action="welcome.php" method="POST">
                             <select name="genre-value" id="select-val"  style="display:none;" required>
                             <option>Thriller</option>
                             </select>
@@ -386,7 +386,7 @@ else{
                     </div>
                     <div class="slide s5" style="background-image: url('images/titanic.jpg');">
                         <div>
-                        <form action="genre.php" method="POST">
+                        <form action="welcome.php" method="POST">
                             <select name="genre-value" id="select-val"  style="display:none;" required>
                             <option>Love</option>
                             </select>
