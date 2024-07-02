@@ -1,4 +1,5 @@
-MovieVerse-A Movie Review Management Application designed using PHP
+<h2>MovieVerse</h2>h2>
+A Movie Review Management Application designed using PHP
 <br>
 Designed and created a complete movie review system. It has a user-friendly front-end design and dynamic content creation features.
 <br>
