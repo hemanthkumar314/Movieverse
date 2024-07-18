@@ -1,57 +1,45 @@
 <?php
 
-$loginError=false;
-if($_SERVER["REQUEST_METHOD"]=="POST")
-{
+$loginError = false;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include '_dbconnect.php';
 
-    $name=$_POST['loguser'];
-    $pass=$_POST['logpass'];
-    $type=$_POST['logtype'];
+    $name = $_POST['loguser'];
+    $pass = $_POST['logpass'];
+    $type = $_POST['logtype'];
 
-    if($type=='Admin')
-    {
+    if ($type == 'Admin') {
         echo "I am admin session";
-        $sql="SELECT * from admin_details where name='$name' and password='$pass'";
+        $sql = "SELECT * FROM admin_details WHERE name='$name' AND password='$pass'";
+        $result = mysqli_query($conn, $sql);
 
-        $result=mysqli_query($conn,$sql);
-    
-        if($mysqli_num_rows($result)==1)
-        {
+        if (mysqli_num_rows($result) == 1) {
             session_start();
-            $_SESSION['username']=$name;
-            $_SESSION['password']=$pass;
-            $_SESSION['type']=$type;
+            $_SESSION['username'] = $name;
+            $_SESSION['password'] = $pass;
+            $_SESSION['type'] = $type;
             header("location:welcome.php");
+        } else {
+            $loginError = true;
         }
-        
-        else{
-            $loginError=true;
+    } else {
+        $sql = "SELECT * FROM user_details WHERE name='$name'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+
+        if (mysqli_num_rows($result) == 1 && password_verify($pass, $row['password'])) {
+            session_start();
+            $_SESSION['username'] = $name;
+            $_SESSION['password'] = $pass;
+            $_SESSION['type'] = $type;
+            header("location:welcome.php");
+        } else {
+            $loginError = true;
         }
     }
-    else{
-        
-        // $sql="SELECT * from user_details where name='$name' and password='$pass'";
-        $sql="SELECT * from user_details where name='$name'";
-        $result=mysqli_query($conn,$sql);
-        $row=mysqli_fetch_assoc($result);
-    
-        if($mysqli_num_rows($result)==1 && password_verify($pass,$row['password']))
-        {
-            session_start();
-            $_SESSION['username']=$name;
-            $_SESSION['password']=$pass;
-            $_SESSION['type']=$type;
-            header("location:welcome.php");
-        }
-        
-        else{
-            $loginError=true;
-        }
-    }
- 
 }
-$mysqli_close($conn);
+
+mysqli_close($conn);
 
 ?>
 

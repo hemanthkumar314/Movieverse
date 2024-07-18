@@ -1,9 +1,9 @@
 <?php
 
-$servername="sql303.infinityfree.com";
-$username="	if0_36658551";
-$password="OEAf6ciyLlxf,";
-$database="if0_36658551_movies";
+$servername="localhost";
+$username="root";
+$password="";
+$database="movieverse";
 
 $con=mysqli_connect($servername,$username,$password,$database);
 

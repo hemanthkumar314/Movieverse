@@ -1,8 +1,8 @@
  <?php
-    $DATABASE_HOST = 'sql303.infinityfree.com';
-    $DATABASE_USER = 'if0_36658551'; 
-    $DATABASE_PASS = 'OEAf6ciyLlxf'; 
-    $DATABASE_NAME  = 'if0_36658551_admin_details';
+    $DATABASE_HOST = 'localhost';
+    $DATABASE_USER = 'root'; 
+    $DATABASE_PASS = ''; 
+    $DATABASE_NAME  = 'movieverse';
 
     $con = mysqli_connect($DATABASE_HOST,$DATABASE_USER,$DATABASE_PASS,$DATABASE_NAME);  
 

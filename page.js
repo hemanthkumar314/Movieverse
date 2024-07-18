@@ -5,12 +5,7 @@ const change = () => {
     {
       var n=document.getElementById("floating-window").length;
       for(var i=0;i<n;++i)
-      {
-        
-      document.getElementById("floating-window")[i].style.display = "none";
-
-       
-      }
+        document.getElementById("floating-window")[i].style.display = "none";
     }
     
     j=1;

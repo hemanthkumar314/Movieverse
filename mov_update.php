@@ -10,48 +10,46 @@
 </head>
 <body>
  <?php 
-include "_dbmovconnect.php";
-  $id="";
-  $m_name="";
-  $m_desc="";
-  $m_actor="";
-    $m_actress="";
-    $m_director="";
-    $m_img="";
-    $m_yr="";
-    $m_rating="";
-    $m_dur="";
-    $m_imdb="";
-    $m_genre="";
-    $m_lan="";
-   if(isset($_POST["id"])){
-    $id=$_POST["mov-id"];
-    $sql = "SELECT * FROM movies WHERE mov_id='$id'";
-             $result1 = $con->query($sql);
+  include "_dbmovconnect.php";
+    $id="";
+    $m_name="";
+    $m_desc="";
+    $m_actor="";
+      $m_actress="";
+      $m_director="";
+      $m_img="";
+      $m_yr="";
+      $m_rating="";
+      $m_dur="";
+      $m_imdb="";
+      $m_genre="";
+      $m_lan="";
+    if(isset($_POST["id"])){
+      $id=$_POST["mov-id"];
+      $sql = "SELECT * FROM movies WHERE mov_id='$id'";
+              $result1 = $con->query($sql);
 
-             if ($result1->num_rows > 0) {
+              if ($result1->num_rows > 0) {
 
-               while($row1 = $result1->fetch_assoc()) {
+                while($row1 = $result1->fetch_assoc()) {
 
-               
-    $m_name=$row1["mov_name"];
-    $m_desc=$row1["description"];
-    $m_actor=$row1["actor"];
-    $m_actress=$row1["actress"];
-    $m_director=$row1["director"];
-    $m_img=$row1["image"];
-    $m_yr=$row1["year"];
-    $m_rating=$row1["rating"];
-    $m_dur=$row1["duration"];
-    $m_imdb=$row1["imdb"];
-    $m_genre=$row1["genre"];
-    $m_lan=$row1["language"];
-    
-               }
-               }
-   }
-//    
-//    
+                
+      $m_name=$row1["mov_name"];
+      $m_desc=$row1["description"];
+      $m_actor=$row1["actor"];
+      $m_actress=$row1["actress"];
+      $m_director=$row1["director"];
+      $m_img=$row1["image"];
+      $m_yr=$row1["year"];
+      $m_rating=$row1["rating"];
+      $m_dur=$row1["duration"];
+      $m_imdb=$row1["imdb"];
+      $m_genre=$row1["genre"];
+      $m_lan=$row1["language"];
+      
+                }
+                }
+    }
    ?>
     
      <div class="container">
@@ -109,9 +107,6 @@ include "_dbmovconnect.php";
           </div> 
         </div>
       
-        
-   
-
         <select name="mov-id" id="select-val"  style="position: relative; color:black; display:none;" required>
                 <option  class="form-style"><?php echo $id;?></option>
                 </select>

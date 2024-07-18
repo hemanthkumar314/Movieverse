@@ -1,8 +1,6 @@
 <?php
-
-session_start();
-include '_dbconnect.php';
-
+    session_start();
+    include '_dbconnect.php';
 ?>
 
 

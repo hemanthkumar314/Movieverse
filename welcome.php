@@ -87,7 +87,7 @@ else{
                             <option value="Tamil" name="lang" class="form-style">Tamil</option>
                             <option value="English" name="lang" class="form-style">English</option>
                         </select>
-                        <input type="submit" class="btn btn-dark sub-btn1" value="">
+                        <input type="submit" class="btn btn-dark sub-btn1" value="GO">
                         </form>
 
                         <form action="welcome.php" method="POST" style="position: relative;  bottom: 20px;">
@@ -108,18 +108,7 @@ else{
                             data-toggle="dropdown" href="#">
                             <i class="input-icon fa-solid fa-user " style="font-size: 25px;"></i><span ></span></a>
                         <ul class="dropdown-menu tyu" style="background-color: black;">
-                            <!-- <li><a href="#" class="acc1">Account</a></li> -->
                             <li>
-                                <?php
-                                //     $name=$_SESSION['username'];
-
-                                // echo '      <form action="account.php" method="POST">
-                                // <select name="username" id="select-val"  style="position: relative; color:black; display:none;" required>
-                                // <option  class="form-style">'.$name.'</option>
-                                // </select>
-                                // <input type="submit"  class="btn btn-dark" style=" background-color:black" value="Account">
-                                // </form>';
-                                ?>
                                 <form action="account.php" method="POST">
                                     <input type="submit" name="acc" class="btn btn-dark sub-btn" value="Account">
                                 </form>
@@ -210,6 +199,12 @@ else{
                                     <h5 style="margin-left: 10px;">'.$row['mov_id'].'</h5>
                                     <h6 class="actor" style="margin-left: 10px;">Cast : '.$row["actor"].','.$row["actress"].'</h6>
                                     <h6  class="director" style="margin-left: 10px;">Director:'.$row["director"].'</h6>
+                                    <form action="rate.php" method="POST">
+                                        <select name="mov-value" id="select-val"  style="position: relative; color:black; display:none;" required>
+                                        <option  class="form-style">'.$row['mov_id'].'</option>
+                                        </select>
+                                        <input type="submit"  class="btn btn-dark" name="rate_id" style=" background-color:black" value="Rate">
+                                    </form>
                                 </div>
                             </div> ';
                             }
@@ -273,6 +268,12 @@ else{
                                     <h5 style="margin-left: 10px;">'.$row1['mov_id'].'</h5>
                                     <h6 class="actor" style="margin-left: 10px;">Cast : '.$row1["actor"].','.$row1["actress"].'</h6>
                                     <h6  class="director" style="margin-left: 10px;">Director:'.$row1["director"].'</h6>
+                                    <form action="rate.php" method="POST">
+                                        <select name="mov-value" id="select-val"  style="position: relative; color:black; display:none;" required>
+                                        <option  class="form-style">'.$row1['mov_id'].'</option>
+                                        </select>
+                                        <input type="submit"  class="btn btn-dark" name="rate_id" style=" background-color:black" value="Rate">
+                                    </form>
                                 </div>
                             </div> ';
                             }
@@ -334,6 +335,12 @@ else{
                                     <h5 style="margin-left: 10px;">'.$row2['mov_id'].'</h5>
                                     <h6 class="actor" style="margin-left: 10px;">Cast : '.$row2["actor"].','.$row2["actress"].'</h6>
                                     <h6  class="director" style="margin-left: 10px;">Director:'.$row2["director"].'</h6>
+                                    <form action="rate.php" method="POST">
+                                        <select name="mov-value" id="select-val"  style="position: relative; color:black; display:none;" required>
+                                        <option  class="form-style">'.$row2['mov_id'].'</option>
+                                        </select>
+                                        <input type="submit"  class="btn btn-dark" name="rate_id" style=" background-color:black" value="Rate">
+                                    </form>
                                 </div>
                             </div> ';
                             }

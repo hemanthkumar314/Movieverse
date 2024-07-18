@@ -137,6 +137,12 @@
                                                 <h5 class="dur">'. $row["duration"]. '</h5>
                                                 <h6 class="des" style="margin-left: 10px;">'.$row['description'].'</h6>
                                                 <h5 style="margin-left: 10px;">'.$row['mov_id'].'</h5>
+                                                <form action="rate.php" method="POST">
+                                                    <select name="mov-value" id="select-val"  style="position: relative; color:black; display:none;" required>
+                                                    <option  class="form-style">'.$row['mov_id'].'</option>
+                                                    </select>
+                                                    <input type="submit"  class="btn btn-dark" name="rate_id" style=" background-color:black" value="Rate">
+                                                </form>
                                             </div>
                                         </div>
                                    

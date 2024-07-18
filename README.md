@@ -9,7 +9,7 @@
   <ul>
     <li><b>User Registration and Authentication :</b> Users can sign up for an account and log in to access the application.Passwords are securely stored and managed in Database.</li>
     <li><b>Movie Database :</b> A comprehensive SQL database of movies is maintained, including details such as title, genre, release date, and descrption.So,Users can search for movies by title or genre.</li>
-    <li><b>Review and Rating System :</b> Logged-in users can post reviews and rate movies.Reviews and ratings are displayed in real-time, ensuring users always see the most up-to-date information.</li>
+    <li><b>Review and Rating System :</b> Logged-in users can view reviews and rate movies.Reviews and ratings are displayed in real-time, ensuring users always see the most up-to-date information.</li>
   </ul>
 </div>
 

@@ -29,23 +29,22 @@
               
              }
         
-
     }
     ?>
    <div class="container">
       <p>  Do you want to Update or Delete </p>
       <div class="sub">
         <form action="mov_update.php" method="post">
-        <select name="mov-id" id="select-val"  style="position: relative; color:black; display:none;" required>
+            <select name="mov-id" id="select-val"  style="position: relative; color:black; display:none;" required>
                 <option  class="form-style"><?php echo $id;?></option>
-                </select>
-                  <input type="submit" name="id"class="btn1" value="Update">
-</form>
-<form action="edit.php" method="post">
-<select name="mov-value" id="select-val"  style="position: relative; color:black; display:none;" required>
+            </select>
+            <input type="submit" name="id"class="btn1" value="Update">
+        </form>
+        <form action="edit.php" method="post">
+            <select name="mov-value" id="select-val"  style="position: relative; color:black; display:none;" required>
                 <option  class="form-style"><?php echo $id;?></option>
-                </select>
-                  <input type="submit" class="btn2" name="id" value="Delete">
+            </select>
+            <input type="submit" class="btn2" name="id" value="Delete">
         </div>
     </div>
     </form>

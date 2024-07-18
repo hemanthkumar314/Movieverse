@@ -65,12 +65,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         <div class="col-md-6 left-box" style="background-color: black;">
             <img src="images/logo5.png" alt="" class="title-pic">
             <img src="images/logo2.png" alt="" class="title-pic-2">
-            <!-- <div class="description">
-                <p class="des">Discover the world of cinema like never before with our premier movie database
-                    Explore your favorite titles, actors, and directors with ease, and stay up-to-date
-                    on the latest news and reviews. Immerse yourself in the magic of film with our
-                    sleek and sophisticated platform, where knowledge and entertainment collide.</p>            </div> -->
-                    <img src="images/logo3.png" alt="" class="title-pic">
+            <img src="images/logo3.png" alt="" class="title-pic">
         </div>
         <div class="col-md-6 right-box" >
            
