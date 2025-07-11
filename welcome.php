@@ -136,11 +136,11 @@ if(isset($_POST['lang-value']))
                     </div>
                 </div>
                 
-                <h1 class="title">TRENDING NOW..</h1>
+                <h1 class="title">Trending Movies</h1>
                     <div class="card-container">
                         <?php
 
-                            $sql="SELECT * FROM movies where year>='2025'";
+                            $sql="SELECT * FROM movies where year>='2025' ORDER BY year, language";
 
                             $result=mysqli_query($con,$sql);
 
@@ -162,7 +162,6 @@ if(isset($_POST['lang-value']))
                                         <h5 class="rate">'. $row["rating"]. '</h5>
                                         <h5 class="dur">'. $row["duration"]. 'min</h5>
                                     <h6 class="des" style="margin-left: 10px;">'.$row['description'].'</h6>
-                                    <h5 style="margin-left: 10px;">'.$row['mov_id'].'</h5>
                                     <h6 class="actor" style="margin-left: 10px;">Cast : '.$row["actor"].','.$row["actress"].'</h6>
                                     <h6  class="director" style="margin-left: 10px;">Director:'.$row["director"].'</h6>
                                     <form action="edit.php" method="POST">
@@ -192,7 +191,6 @@ if(isset($_POST['lang-value']))
                                     <h5 class="rate">'. $row["rating"]. '</h5>
                                     <h5 class="dur">'. $row["duration"]. 'min</h5>
                                     <h6 class="des" style="margin-left: 10px;">'.$row['description'].'</h6>
-                                    <h5 style="margin-left: 10px;">'.$row['mov_id'].'</h5>
                                     <h6 class="actor" style="margin-left: 10px;">Cast : '.$row["actor"].','.$row["actress"].'</h6>
                                     <h6  class="director" style="margin-left: 10px;">Director:'.$row["director"].'</h6>
                                     <form action="rate.php" method="POST">
@@ -209,10 +207,10 @@ if(isset($_POST['lang-value']))
 
                         ?>            
             </div>
-            <h1 class="title">HIGHLY RATED..</h1>
+            <h1 class="title">Highly Rated.. </h1>
             <div class="card-container">
                     <?php
-                         $sql1="SELECT * FROM movies where imdb>='8'";
+                         $sql1="SELECT * FROM movies where imdb>='8' ORDER BY year,imdb, language ";
                          $result1=mysqli_query($con,$sql1);
                          if($_SESSION['type']=='Admin')
                             {
@@ -231,7 +229,6 @@ if(isset($_POST['lang-value']))
                                         <h5 class="rate">'. $row1["rating"]. '</h5>
                                         <h5 class="dur">'. $row1["duration"]. 'min</h5>
                                     <h6 class="des" style="margin-left: 10px;">'.$row1['description'].'</h6>
-                                    <h5 style="margin-left: 10px;">'.$row1['mov_id'].'</h5>
                                     <h6 class="actor" style="margin-left: 10px;">Cast : '.$row1["actor"].','.$row1["actress"].'</h6>
                                     <h6  class="director" style="margin-left: 10px;">Director:'.$row1["director"].'</h6>
                                     <form action="edit.php" method="POST">
@@ -261,7 +258,6 @@ if(isset($_POST['lang-value']))
                                     <h5 class="rate">'. $row1["rating"]. '</h5>
                                     <h5 class="dur">'. $row1["duration"]. 'min</h5>
                                     <h6 class="des" style="margin-left: 10px;">'.$row1['description'].'</h6>
-                                    <h5 style="margin-left: 10px;">'.$row1['mov_id'].'</h5>
                                     <h6 class="actor" style="margin-left: 10px;">Cast : '.$row1["actor"].','.$row1["actress"].'</h6>
                                     <h6  class="director" style="margin-left: 10px;">Director:'.$row1["director"].'</h6>
                                     <form action="rate.php" method="POST">
@@ -276,10 +272,10 @@ if(isset($_POST['lang-value']))
                         }       
                     ?>
             </div>
-            <h1 class="title">POPULAR INDIAN MOVIES..</h1>
+            <h1 class="title">Short & Sweet</h1>
             <div class="card-container">
                     <?php
-                         $sql2="SELECT * FROM movies where mov_id='1' or  mov_id='2' or  mov_id='3' or  mov_id='4' or  mov_id='62' or  mov_id='61' or  mov_id='59' ";
+                         $sql2="SELECT * FROM movies WHERE duration<='150' ORDER BY duration,year";
                          $result2=mysqli_query($con,$sql2);
                          if($_SESSION['type']=='Admin')
                             {
@@ -298,7 +294,6 @@ if(isset($_POST['lang-value']))
                                         <h5 class="rate">'. $row2["rating"]. '</h5>
                                         <h5 class="dur">'. $row2["duration"]. 'min</h5>
                                     <h6 class="des" style="margin-left: 10px;">'.$row2['description'].'</h6>
-                                    <h5 style="margin-left: 10px;">'.$row2['mov_id'].'</h5>
                                     <h6 class="actor" style="margin-left: 10px;">Cast : '.$row2["actor"].','.$row2["actress"].'</h6>
                                     <h6  class="director" style="margin-left: 10px;">Director:'.$row2["director"].'</h6>
                                     <form action="edit.php" method="POST">
@@ -328,7 +323,6 @@ if(isset($_POST['lang-value']))
                                     <h5 class="rate">'. $row2["rating"]. '</h5>
                                     <h5 class="dur">'. $row2["duration"]. 'min</h5>
                                     <h6 class="des" style="margin-left: 10px;">'.$row2['description'].'</h6>
-                                    <h5 style="margin-left: 10px;">'.$row2['mov_id'].'</h5>
                                     <h6 class="actor" style="margin-left: 10px;">Cast : '.$row2["actor"].','.$row2["actress"].'</h6>
                                     <h6  class="director" style="margin-left: 10px;">Director:'.$row2["director"].'</h6>
                                     <form action="rate.php" method="POST">
