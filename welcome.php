@@ -37,10 +37,6 @@ if(isset($_POST['lang-value']))
     header('location:display.php');
 }
 
-else{
-    echo  "Im in welcome page";
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -144,7 +140,7 @@ else{
                     <div class="card-container">
                         <?php
 
-                            $sql="SELECT * FROM movies where year>='2023'";
+                            $sql="SELECT * FROM movies where year>='2025'";
 
                             $result=mysqli_query($con,$sql);
 
@@ -216,7 +212,7 @@ else{
             <h1 class="title">HIGHLY RATED..</h1>
             <div class="card-container">
                     <?php
-                         $sql1="SELECT * FROM movies where imdb>='7.5'";
+                         $sql1="SELECT * FROM movies where imdb>='8'";
                          $result1=mysqli_query($con,$sql1);
                          if($_SESSION['type']=='Admin')
                             {

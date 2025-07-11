@@ -12,9 +12,7 @@ if(!$conn)
     die("Sorry we failed to connnect due to:".mysqli_connect_error());
 
 }
-else{
-    echo "Db connected";
-}
+
 
 
 ?>
