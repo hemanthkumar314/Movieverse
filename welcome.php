@@ -210,7 +210,7 @@ if(isset($_POST['lang-value']))
             <h1 class="title">Highly Rated.. </h1>
             <div class="card-container">
                     <?php
-                         $sql1="SELECT * FROM movies where imdb>='8' ORDER BY year,imdb, language ";
+                         $sql1="SELECT * FROM movies where imdb>='8' ORDER BY imdb, year,language ";
                          $result1=mysqli_query($con,$sql1);
                          if($_SESSION['type']=='Admin')
                             {
