@@ -61,7 +61,7 @@ if (isset($_POST["rate_id"])) {
                     <img src="<?php echo $m_img; ?>" alt="img" class="image">
                 </div>
                 <div class="col-lg-6">
-                    <h6><b>Movie:</b> <?php echo $m_name; ?></h6>
+                    <h6 style="margin-top:1%;"><b>Movie:</b> <?php echo $m_name; ?></h6>
                     <h6><b>Cast:</b> <?php echo $m_actor; ?>, <?php echo $m_actress; ?></h6>
                     <h6><b>Director:</b> <?php echo $m_director; ?></h6>
                     <h6><b>Info:</b> <?php echo $m_lan; ?> <?php echo $m_yr; ?> <?php echo $m_genre; ?></h6>
@@ -83,27 +83,27 @@ if (isset($_POST["rate_id"])) {
 
     <?php
         if (isset($_POST["submit"])) {
-            // $rate_input = $_POST["rate"];
-            // $m_id = $_POST["mov-id"];
+            $rate_input = $_POST["rate"];
+            $m_id = $_POST["mov-id"];
             
-            // $sql = "SELECT rating FROM movies WHERE mov_id='$m_id'";
-            // $result = $con->query($sql);
-            // if ($result->num_rows > 0) {
-            //     $row = $result->fetch_assoc();
-            //     $m_rating = $row['rating'];
+            $sql = "SELECT rating FROM movies WHERE mov_id='$m_id'";
+            $result = $con->query($sql);
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $m_rating = $row['rating'];
                 
-            //     $rate = ($m_rating + $rate_input) / 2;
+                $rate = ($m_rating + $rate_input) / 2;
                 
-            //     $sql = "UPDATE `movies` SET rating='$rate' WHERE mov_id='$m_id'";
+                $sql = "UPDATE `movies` SET rating='$rate' WHERE mov_id='$m_id'";
                 
-            //     if ($con->query($sql) === TRUE) {
-            //         $_SESSION['update'] = "updated successfully";
-            //         header("Location: welcome.php");
-            //         exit;
-            //     } else {
-            //         echo "Error updating record: " . $con->error;
-            //     }
-            // }
+                if ($con->query($sql) === TRUE) {
+                    $_SESSION['update'] = "Rated successfully";
+                    header("Location: welcome.php");
+                    exit;
+                } else {
+                    echo "Error updating record: " . $con->error;
+                }
+            }
             header("Location: welcome.php");
         }
     ?>

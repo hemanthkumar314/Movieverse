@@ -106,13 +106,12 @@
                                         <h5 class="rate">'. $row["rating"]. '</h5>
                                         <h5 class="dur">'. $row["duration"]. 'min</h5>
                                         <h6 class="des" style="margin-left: 10px;">'.$row['description'].'</h6>
-                                        <h5 style="margin-left: 10px;">'.$row['mov_id'].'</h5>
                                         <form action="edit.php" method="POST">
-                                <select name="mov-value" id="select-val"  style="position: relative; color:black; display:none;" required>
-                                <option  class="form-style">'.$row['mov_id'].'</option>
-                                </select>
-                                    <input type="submit"  class="btn btn-dark" style="margin-bottom: 2%; left:5%; top: 35px; position: relative; background-color:black" value="Edit">
-                                </form>
+                                            <select name="mov-value" id="select-val"  style="position: relative; color:black; display:none;" required>
+                                                <option  class="form-style">'.$row['mov_id'].'</option>
+                                            </select>
+                                            <input type="submit"  class="btn btn-dark" style="margin-bottom: 2%; left:5%; top: 35px; position: relative; background-color:black" value="Edit">
+                                        </form>
                                     </div>
                                 </div>
                         
@@ -136,7 +135,6 @@
                                                 <h5 class="rate">'. $row["rating"]. '</h5>
                                                 <h5 class="dur">'. $row["duration"]. '</h5>
                                                 <h6 class="des" style="margin-left: 10px;">'.$row['description'].'</h6>
-                                                <h5 style="margin-left: 10px;">'.$row['mov_id'].'</h5>
                                                 <form action="rate.php" method="POST">
                                                     <select name="mov-value" id="select-val"  style="position: relative; color:black; display:none;" required>
                                                     <option  class="form-style">'.$row['mov_id'].'</option>

@@ -72,6 +72,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>MovieVerse</title>
 </head>
 <body>
@@ -86,9 +87,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
         <div class="col-md-6 right-box" >
                  <?php
-                    if($showAlert==true)
+                    if($showAlert==true) 
                     {
-                        echo '<div  class="alert alert-success alert-dismissible fade show" role="alert" >
+                        echo'<div class="alert alert-success alert-dismissible fade show position-absolute top-0 end-0 m-3 z-3" role="alert" style="width: auto;">
                         <strong>Congratulations!! </strong>Your Account is created Successfully 
                         <button type="button" class="btn-close btn-primary" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>';
@@ -96,7 +97,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
                     if($showError==true)
                     {
-                        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        echo'<div class="alert alert-danger alert-dismissible fade show position-absolute top-0 end-0 m-3 z-3" role="alert" style="width: auto;">
                         <strong>Account creation Failed</strong>.... Make sure that You have entered the same password in both the feilds 
                         <button type="button" class="btn-close btn-primary" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>';
@@ -104,7 +105,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
                     if($userError==true)
                     {
-                        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        echo'<div class="alert alert-danger alert-dismissible fade show position-absolute top-0 end-0 m-3 z-3" role="alert" style="width: auto;">
                         <strong>Username Already Exists</strong>....Do try another username
                         <button type="button" class="btn-close btn-primary" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>';
@@ -132,9 +133,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                                                                     <i class="input-icon fa-solid fa-user"></i>
                                                                 </div>	
                                                                 <div class="form-group mt-2">
-                                                                    <input type="text" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off" required>
+                                                                    <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="password" autocomplete="off" required>
                                                                     <i class="input-icon fa-solid fa-lock"></i>
+                                                                    <span class="toggle-password"><i class="fas fa-eye" onclick="togglePassword('password', this)"></i></span>
                                                                 </div>
+                                                                
+
                                                                 <div class="form-group mt-2">
                                                                     <label for="select-val"></label>
                                                                     <select name="logtype" id="select-val" class="form-style" style="position: relative; bottom: 25px;" required>
@@ -163,12 +167,14 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                                                                     <i class="input-icon fa-sharp fa-solid fa-at"></i>
                                                                 </div>	
                                                                 <div class="form-group mt-2">
-                                                                    <input type="text" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off" required>
+                                                                    <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="signpass" autocomplete="off" required>
                                                                     <i class="input-icon fa-solid fa-lock"></i>
+                                                                    <span class="toggle-password"><i class="fas fa-eye" onclick="togglePassword('signpass', this)"></i></span>
                                                                 </div>
                                                                 <div class="form-group mt-2">
-                                                                    <input type="text" name="logpass1" class="form-style" placeholder="Confirm your Password" id="logpass" autocomplete="off" required>
+                                                                    <input type="password" name="logpass1" class="form-style" placeholder="Confirm your Password" id="logpass1" autocomplete="off" required>
                                                                     <i class="input-icon fa-solid fa-lock"></i>
+                                                                    <span class="toggle-password"><i class="fas fa-eye" onclick="togglePassword('logpass1', this)"></i></span>
                                                                 </div>
 
                                                                 <div class="form-group mt-2">
@@ -192,7 +198,31 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         </div>
     </div>
     
-    
+    <script >
+        setTimeout(() => {
+        const alert = document.querySelector('.alert');
+        if(alert){
+            alert.classList.remove('show');
+            alert.classList.add('fade');
+        }
+        }, 2500); 
+    </script>
+
+    <script>
+        function togglePassword(id, icon) {
+            const input = document.getElementById(id);
+            if (!input) {
+            console.error(`Input with id="${id}" not found`);
+            return;
+            }
+            const isPassword = input.type === 'password';
+            input.type = isPassword ? 'text' : 'password';
+            icon.classList.toggle('fa-eye');
+            icon.classList.toggle('fa-eye-slash');
+        }
+    </script>
+
+
 </body>
 </html>
 

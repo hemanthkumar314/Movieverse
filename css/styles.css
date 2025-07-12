@@ -1,12 +1,11 @@
 
-
 .title-pic{
   width: 50%;
-  margin-left: 25%;
+  margin-left: 20%;
 }
 .title-pic-2{
   width: 50%;
-  margin-left: 25%;
+  margin-left: 20%;
   /* margin-top: 10%; */
 }
 /* .des
@@ -28,7 +27,8 @@
 	line-height: 1.7;
 	color: white;
 	background-color: black;
-	overflow-x: hidden;
+  overflow: hidden; /* already set, keep it */
+  height: 100vh;
 }
 a {
 	cursor: pointer;
@@ -304,9 +304,6 @@ h6 span{
   box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
 }
 
-
-
-
 .logo {
 	position: absolute;
 	top: 30px;
@@ -320,3 +317,33 @@ h6 span{
 	width: auto;
 	display: block;
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.row {
+  margin: 0 !important;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  height: 100%;
+  overflow: hidden;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #c4c3ca;
+  font-size: 16px;
+}
+
