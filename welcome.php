@@ -122,20 +122,7 @@ if(isset($_POST['lang-value']))
 
         
         <!-- MAIN CONTAINER -->
-        <!-- <div class="slider">
-            <div class="content">
-                <h1 style="font-weight: bold;">Kung Fu Panda</h1>
-                <p class="iop">When Po the Panda, a kung fu enthusiast, gets selected as the Dragon Warrior, he decides to team up with the Furious Five and destroy the evil forces that threaten the Valley of Peace.</p> 
-                    <button id="myBtn" onclick="myFunction()">Pause</button>
-            </div>
-            
-            <div class="videoContainer">
-                <video autoplay controls  loop id="myvideo" width="100%" height="auto" >
-                    <source src="images/kgfc.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div> -->
-
+      
         <div class="slider">
             <div class="content">
                 <h1 style="font-weight: bold;">Kung Fu Panda</h1>
@@ -414,19 +401,32 @@ if(isset($_POST['lang-value']))
         
         <?php
             if(isset($_SESSION['delete']) && $_SESSION['delete']!='')
-            {?>
-                <script>swal("Deleted Successfully", "", "success");</script>
-       <?php     }
-       unset($_SESSION['delete']);
-            ?>
-            <?php
+            {
+        ?>
+            <script>swal("Deleted Successfully", "", "success");</script>
+        <?php     
+            }
+            unset($_SESSION['delete']);
+        ?>
+        <?php
             if(isset($_SESSION['update']) && $_SESSION['update']!='')
-            {?>
-                <script>swal("Updated Successfully", "", "success");</script>
-       <?php     }
-       unset($_SESSION['update']);
+            {
+        ?>
+            <script>swal("Updated Successfully", "", "success");</script>
+       <?php     
+            }
+            unset($_SESSION['update']);
        ?>
-    <script src="data.js"></script>
+       <?php
+            if(isset($_SESSION['rate']) && $_SESSION['rate']!='')
+            {
+        ?>
+            <script>swal("Rated Successfully", "", "success");</script>
+       <?php     
+            }
+            unset($_SESSION['rate']);
+       ?>
+        <script src="data.js"></script>
 </body>
 </html>
 

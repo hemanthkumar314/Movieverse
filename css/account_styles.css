@@ -3,6 +3,17 @@ body{
     color: white;
 }
 
+
+.title-pic{
+    width: 50%;
+    margin-left: 20%;
+  }
+  .title-pic-2{
+    width: 50%;
+    margin-left: 20%;
+    /* margin-top: 10%; */
+  }
+
 /* CSS VARIABLES */
 :root {
     --primary: #141414;
@@ -415,22 +426,13 @@ a{
 .icon{
     
     position: relative;
-    right: 10%;
+    right: 5%;
     color: black;
     size: 1.2rem;
-    
+    text-align:left;
 
   }
 
-.title-pic{
-    width: 50%;
-    margin-left: 25%;
-  }
-  .title-pic-2{
-    width: 50%;
-    margin-left: 25%;
-    /* margin-top: 10%; */
-  }
 
   .box{
     background-image: linear-gradient(to right, #CC00CC , #660066);
@@ -442,5 +444,24 @@ a{
   }
 
   
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.row {
+  margin: 0 !important;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  height: 37%;
+  overflow: hidden;
+}
+
 
  

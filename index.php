@@ -86,107 +86,105 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         </div>
 
         <div class="col-md-6 right-box" >
-                 <?php
-                    if($showAlert==true) 
-                    {
-                        echo'<div class="alert alert-success alert-dismissible fade show position-absolute top-0 end-0 m-3 z-3" role="alert" style="width: auto;">
-                        <strong>Congratulations!! </strong>Your Account is created Successfully 
-                        <button type="button" class="btn-close btn-primary" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>';
-                    }
+            <?php
+            if($showAlert==true) 
+            {
+                echo'<div class="alert alert-success alert-dismissible fade show position-absolute top-0 end-0 m-3 z-3" role="alert" style="width: auto;">
+                <strong>Congratulations!! </strong>Your Account is created Successfully 
+                <button type="button" class="btn-close btn-primary" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+            }
 
-                    if($showError==true)
-                    {
-                        echo'<div class="alert alert-danger alert-dismissible fade show position-absolute top-0 end-0 m-3 z-3" role="alert" style="width: auto;">
-                        <strong>Account creation Failed</strong>.... Make sure that You have entered the same password in both the feilds 
-                        <button type="button" class="btn-close btn-primary" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>';
-                    }
+            if($showError==true)
+            {
+                echo'<div class="alert alert-danger alert-dismissible fade show position-absolute top-0 end-0 m-3 z-3" role="alert" style="width: auto;">
+                <strong>Account creation Failed</strong>.... Make sure that You have entered the same password in both the feilds 
+                <button type="button" class="btn-close btn-primary" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+            }
 
-                    if($userError==true)
-                    {
-                        echo'<div class="alert alert-danger alert-dismissible fade show position-absolute top-0 end-0 m-3 z-3" role="alert" style="width: auto;">
-                        <strong>Username Already Exists</strong>....Do try another username
-                        <button type="button" class="btn-close btn-primary" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>';
-                    }
+            if($userError==true)
+            {
+                echo'<div class="alert alert-danger alert-dismissible fade show position-absolute top-0 end-0 m-3 z-3" role="alert" style="width: auto;">
+                <strong>Username Already Exists</strong>....Do try another username
+                <button type="button" class="btn-close btn-primary" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+            }
 
-                ?> 
+        ?> 
 
-                <div class="section">
-                    <div class="container">
-                        <div class="row full-height justify-content-center">
-                            <div class="col-12 text-center align-self-center py-5">
-                                <div class="section pb-5 pt-5 pt-sm-2 text-center">
-                                    <h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
-                                    <input class="checkbox" type="checkbox" id="reg-log" name="reg-log">
-                                    <label for="reg-log"></label>
-                                    <div class="card-3d-wrap mx-auto">
-                                        <div class="card-3d-wrapper">
-                                            <div class="card-front">
-                                                <div class="center-wrap">
-                                                    <div class="section text-center">
-                                                        <h2 class="mb-4 pb-3">Log In</h2>
-                                                        <form action="login.php" method="POST">
-                                                                <div class="form-group">
-                                                                    <input type="text" name="loguser" class="form-style" placeholder="Your Username" id="loguser" autocomplete="off" required>
-                                                                    <i class="input-icon fa-solid fa-user"></i>
-                                                                </div>	
-                                                                <div class="form-group mt-2">
-                                                                    <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="password" autocomplete="off" required>
-                                                                    <i class="input-icon fa-solid fa-lock"></i>
-                                                                    <span class="toggle-password"><i class="fas fa-eye" onclick="togglePassword('password', this)"></i></span>
-                                                                </div>
-                                                                
+        <div class="section">
+            <div class="container">
+                <div class="row full-height justify-content-center">
+                    <div class="col-12 text-center align-self-center py-5">
+                        <div class="section pb-5 pt-5 pt-sm-2 text-center">
+                            <h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
+                            <input class="checkbox" type="checkbox" id="reg-log" name="reg-log">
+                            <label for="reg-log"></label>
+                            <div class="card-3d-wrap mx-auto">
+                                <div class="card-3d-wrapper">
+                                    <div class="card-front">
+                                        <div class="center-wrap">
+                                            <div class="section text-center">
+                                                <h2 class="mb-4 pb-3">Log In</h2>
+                                                <form action="login.php" method="POST">
+                                                        <div class="form-group">
+                                                            <input type="text" name="loguser" class="form-style" placeholder="Your Username" id="loguser" autocomplete="off" required>
+                                                            <i class="input-icon fa-solid fa-user"></i>
+                                                        </div>	
+                                                        <div class="form-group mt-2">
+                                                            <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="password" autocomplete="off" required>
+                                                            <i class="input-icon fa-solid fa-lock"></i>
+                                                            <span class="toggle-password"><i class="fas fa-eye" onclick="togglePassword('password', this)"></i></span>
+                                                        </div>
+                                                        
 
-                                                                <div class="form-group mt-2">
-                                                                    <label for="select-val"></label>
-                                                                    <select name="logtype" id="select-val" class="form-style" style="position: relative; bottom: 25px;" required>
-                                                                    <option value="" class="form-style">None</option>
-                                                                    <option value="User" class="form-style">User</option>
-                                                                    <option value="Admin" class="form-style">Admin</option>
-                                                                    </select>
-                                                                </div>
-                                                                <input type="submit" class="btn mt-4" value="submit">
-                                                        </form>
-                                                        <p class="mb-0 mt-4 text-center"><a href="forget.php" class="link">Forgot your password?</a></p>
-                                                    </div>
-                                                </div>
+                                                        <div class="form-group mt-2">
+                                                            <label for="select-val"></label>
+                                                            <select name="logtype" id="select-val" class="form-style" style="position: relative; bottom: 25px;" required>
+                                                            <option value="" class="form-style">None</option>
+                                                            <option value="User" class="form-style">User</option>
+                                                            <option value="Admin" class="form-style">Admin</option>
+                                                            </select>
+                                                        </div>
+                                                        <input type="submit" class="btn mt-4" value="submit">
+                                                </form>
+                                                <p class="mb-0 mt-4 text-center"><a href="forget.php" class="link">Forgot your password?</a></p>
                                             </div>
-                                            <div class="card-back">
-                                                <div class="center-wrap">
-                                                    <div class="section text-center">
-                                                        <h2 class="mb-4 pb-3" style="position: relative; top: 10px;">Sign Up</h2>
-                                                        <form action="index.php" method="POST">
-                                                                <div class="form-group">
-                                                                    <input type="text" name="logname" class="form-style" placeholder="Your Name" id="logname" autocomplete="off" required>
-                                                                    <i class="input-icon fa-solid fa-user"></i>
-                                                                </div>	
-                                                                <div class="form-group mt-2">
-                                                                    <input  type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off" required>
-                                                                    <i class="input-icon fa-sharp fa-solid fa-at"></i>
-                                                                </div>	
-                                                                <div class="form-group mt-2">
-                                                                    <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="signpass" autocomplete="off" required>
-                                                                    <i class="input-icon fa-solid fa-lock"></i>
-                                                                    <span class="toggle-password"><i class="fas fa-eye" onclick="togglePassword('signpass', this)"></i></span>
-                                                                </div>
-                                                                <div class="form-group mt-2">
-                                                                    <input type="password" name="logpass1" class="form-style" placeholder="Confirm your Password" id="logpass1" autocomplete="off" required>
-                                                                    <i class="input-icon fa-solid fa-lock"></i>
-                                                                    <span class="toggle-password"><i class="fas fa-eye" onclick="togglePassword('logpass1', this)"></i></span>
-                                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-back">
+                                        <div class="center-wrap">
+                                            <div class="section text-center">
+                                                <h2 class="mb-4 pb-3" style="position: relative; top: 10px;">Sign Up</h2>
+                                                <form action="index.php" method="POST">
+                                                        <div class="form-group">
+                                                            <input type="text" name="logname" class="form-style" placeholder="Your Name" id="logname" autocomplete="off" required>
+                                                            <i class="input-icon fa-solid fa-user"></i>
+                                                        </div>	
+                                                        <div class="form-group mt-2">
+                                                            <input  type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off" required>
+                                                            <i class="input-icon fa-sharp fa-solid fa-at"></i>
+                                                        </div>	
+                                                        <div class="form-group mt-2">
+                                                            <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="signpass" autocomplete="off" required>
+                                                            <i class="input-icon fa-solid fa-lock"></i>
+                                                            <span class="toggle-password"><i class="fas fa-eye" onclick="togglePassword('signpass', this)"></i></span>
+                                                        </div>
+                                                        <div class="form-group mt-2">
+                                                            <input type="password" name="logpass1" class="form-style" placeholder="Confirm your Password" id="logpass1" autocomplete="off" required>
+                                                            <i class="input-icon fa-solid fa-lock"></i>
+                                                            <span class="toggle-password"><i class="fas fa-eye" onclick="togglePassword('logpass1', this)"></i></span>
+                                                        </div>
 
-                                                                <div class="form-group mt-2">
-                                                                    <input type="tel" name="logphone" class="form-style" placeholder=" Phone Number(Format: 10 digit number)" id="logphone" pattern="[0-9]{10}" autocomplete="off" required>
-                                                                    <i class="input-icon fa-solid fa-phone"></i>
-                                                                    <!-- <small style="text-align: left; color:#c4c3ca">Format: 10 digit number</small> -->
-                                                                </div>
-                                                                
-                                                                <input type="submit" class="btn mt-4" style="margin-top: 2%; position: relative; bottom: 12px;" value="submit">
-                                                        </form>
-                                                    </div>
-                                                </div>
+                                                        <div class="form-group mt-2">
+                                                            <input type="tel" name="logphone" class="form-style" placeholder=" Phone Number(Format: 10 digit number)" id="logphone" pattern="[0-9]{10}" autocomplete="off" required>
+                                                            <i class="input-icon fa-solid fa-phone"></i>
+                                                            <!-- <small style="text-align: left; color:#c4c3ca">Format: 10 digit number</small> -->
+                                                        </div>
+                                                        
+                                                        <input type="submit" class="btn mt-4" style="margin-top: 2%; position: relative; bottom: 12px;" value="submit">
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -195,6 +193,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
         </div>
     </div>
     

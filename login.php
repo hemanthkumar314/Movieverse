@@ -9,7 +9,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $type = $_POST['logtype'];
 
     if ($type == 'Admin') {
-        echo "I am admin session";
         $sql = "SELECT * FROM admin_details WHERE name='$name' AND password='$pass'";
         $result = mysqli_query($conn, $sql);
 

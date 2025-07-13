@@ -32,19 +32,19 @@
     }
     ?>
    <div class="container">
-      <p>  Do you want to Update or Delete </p>
+      <p>  Do you want to Update or Delete this Movie ..</p>
       <div class="sub">
         <form action="mov_update.php" method="post">
             <select name="mov-id" id="select-val"  style="position: relative; color:black; display:none;" required>
                 <option  class="form-style"><?php echo $id;?></option>
             </select>
-            <input type="submit" name="id"class="btn1" value="Update">
+            <input type="submit" name="id"class="btn1" value="Update" style="cursor:pointer;">
         </form>
         <form action="edit.php" method="post">
             <select name="mov-value" id="select-val"  style="position: relative; color:black; display:none;" required>
                 <option  class="form-style"><?php echo $id;?></option>
             </select>
-            <input type="submit" class="btn2" name="id" value="Delete">
+            <input type="submit" class="btn2" name="id" value="Delete" style="cursor:pointer;">
         </div>
     </div>
     </form>

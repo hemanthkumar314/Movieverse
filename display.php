@@ -119,7 +119,7 @@
                                 while($row=mysqli_fetch_assoc($result))
                                 {
                                     echo '
-                                    <
+                                    
                                         <div class="card floatcard"  >
                                             <a href="#"><img src="'.$row['image'].'" class="card-img" alt=""></a>
                                             <div class="card-body">

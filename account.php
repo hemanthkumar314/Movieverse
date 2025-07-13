@@ -36,7 +36,7 @@
         <div class="col-md-6 right-box" >
             <button class="btn btn-light home" style="background-image: linear-gradient(to right, #CC00CC , #660066);"><i class="fa-solid fa-house icon "></i><a href="welcome.php">Home</a></button>
             <div class="container box" style="  width: 60%;">
-                <h2>Account Details</h2>
+                <h2 style="margin-bottom:2%;">Account Details</h2>
                 <hr>
                 <?php
                     if($_SESSION['username'])
@@ -50,10 +50,10 @@
                             while($row=mysqli_fetch_assoc($result))
                             {
                                 echo '    <div class="content">
-                                <h3><i class="icon fa-solid fa-user"></i>  <strong>'.$row['name'].'</strong></h3>
-                                <h5><i class="icon fa-sharp fa-solid fa-at"></i> <strong>'.$row['email'].'</strong></h3>
-                                <h4><i class="icon fa-solid fa-phone"></i> <strong>'.$row['phone'].'</strong></h3>
-                                <h5><i class="icon fa-solid fa-lock"></i></h3>
+                                <h4><i class="icon fa-solid fa-user"></i>  <strong>'.$row['name'].'</strong></h4>
+                                <h4><i class="icon fa-sharp fa-solid fa-at"></i> <strong>'.$row['email'].'</strong></h4>
+                                <h4><i class="icon fa-solid fa-phone"></i> <strong>'.$row['phone'].'</strong></h4>
+                                
                                 </div>';
                             }
                             
@@ -67,10 +67,9 @@
                                 while($row=mysqli_fetch_assoc($result))
                                 {
                                     echo '    <div class="content">
-                                    <h3><i class="icon fa-solid fa-user"></i>  <strong>'.$row['name'].'</strong></h3>
-                                    <h5><i class="icon fa-sharp fa-solid fa-at"></i> <strong>'.$row['email'].'</strong></h3>
-                                    <h4><i class="icon fa-solid fa-phone"></i> <strong>'.$row['phone'].'</strong></h3>
-                                    <h5><i class="icon fa-solid fa-lock"></i></h3>
+                                    <h3><i class="icon fa-solid fa-user" style="margin-left:1%;"></i>  <strong>'.$row['name'].'</strong></h3>
+                                    <h3><i class="icon fa-sharp fa-solid fa-at"></i> <strong>'.$row['email'].'</strong></h3>
+                                    <h3><i class="icon fa-solid fa-phone"></i> <strong>'.$row['phone'].'</strong></h3>
                                     </div>';
                                 }
                         }

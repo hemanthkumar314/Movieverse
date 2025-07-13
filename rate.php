@@ -71,7 +71,7 @@ if (isset($_POST["rate_id"])) {
         </div>
 
         <form action="rate.php" method="POST">
-            <input class="rate" type="number" name="rate" id="rate_id" placeholder="Rate the movie" min="1" max="10" step="0.1" required>
+            <input class="rate" type="number" name="rate" id="rating_id" placeholder="Rate the movie" min="1" max="10" step="0.1" required>
             <select name="mov-id" id="select-val"  style="position: relative; color:black; display:none;" required>
                 <option  class="form-style"><?php echo $id;?></option>
             </select>
@@ -92,12 +92,12 @@ if (isset($_POST["rate_id"])) {
                 $row = $result->fetch_assoc();
                 $m_rating = $row['rating'];
                 
-                $rate = ($m_rating + $rate_input) / 2;
+                $rate = (floatval($m_rating) + floatval($rate_input)) / 2;
                 
                 $sql = "UPDATE `movies` SET rating='$rate' WHERE mov_id='$m_id'";
                 
                 if ($con->query($sql) === TRUE) {
-                    $_SESSION['update'] = "Rated successfully";
+                    $_SESSION['rate'] = "Rated successfully";
                     header("Location: welcome.php");
                     exit;
                 } else {
