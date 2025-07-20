@@ -1,57 +1,108 @@
 <?php
+session_start();
+
+if (isset($_SESSION['pass_updated']) && $_SESSION['pass_updated'] === true) {
+    echo '<div class="alert alert-success alert-dismissible fade show position-absolute top-0 end-0 m-3 z-3" role="alert" style="width: auto;">
+            <strong>Congratulations!!</strong> Your Password is Updated Successfully.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
+    unset($_SESSION['pass_updated']);
+}
+?>
+
+<?php
 
 $showAlert=false;
 $showError=false;
 $userError=false;
 $phoneError=false;
+$loginError=false;
 
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {
     include '_dbconnect.php';
-    $name=$_POST['logname'];
-    $email=$_POST['logemail'];
-    $pass=$_POST['logpass'];
-    $cpass=$_POST['logpass1'];
-    $phn=$_POST['logphone'];
-
-    if($stmt = $conn->prepare('SELECT user_id FROM user_details WHERE name = ?'))
+    if ($_POST['form_type'] == 'signup') 
     {
-        $stmt->bind_param('s',$_POST['logname']);
-        $stmt->execute();
-        $stmt->store_result();
-        
-        if($stmt->num_rows>0)
-        {
-            // echo 'Username already exists';
-            $userError=true;
-        }
-        else
-        {
-            if($pass==$cpass)
-            {
-                $pass = password_hash($_POST['logpass'], PASSWORD_DEFAULT);
-                $sql="INSERT INTO `user_details` ( `name`, `email`, `password`, `phone`) 
-                VALUES ('$name', '$email', '$pass', '$phn')";
-        
-                $result=mysqli_query($conn,$sql);
-                
-                if($result)
-                {
-                    $showAlert=true;
-                }
-            }
-        
-            else{
-                $showError=true;
-            }
+        $name=$_POST['logname'];
+        $email=$_POST['logemail'];
+        $pass=$_POST['logpass'];
+        $cpass=$_POST['logpass1'];
+        $phn=$_POST['logphone'];
 
+        if($stmt = $conn->prepare('SELECT user_id FROM user_details WHERE name = ?'))
+        {
+            $stmt->bind_param('s',$_POST['logname']);
+            $stmt->execute();
+            $stmt->store_result();
+            
+            if($stmt->num_rows>0)
+            {
+                $userError=true;
+            }
+            else
+            {
+                if($pass==$cpass)
+                {
+                    $pass = password_hash($_POST['logpass'], PASSWORD_DEFAULT);
+                    $sql="INSERT INTO `user_details` ( `name`, `email`, `password`, `phone`) 
+                    VALUES ('$name', '$email', '$pass', '$phn')";
+            
+                    $result=mysqli_query($conn,$sql);
+                    
+                    if($result)
+                    {
+                        $showAlert=true;
+                    }
+                }
+            
+                else{
+                    $showError=true;
+                }
+
+            }
+            $stmt->close();
         }
-        $stmt->close();
+        else{
+            echo 'Connection failed';
+        }
+        $conn->close();
     }
-    else{
-        echo 'Connection failed';
+    elseif ($_POST['form_type'] == 'login')
+    {
+        $name = $_POST['loguser'];
+        $pass = $_POST['logpass'];
+        $type = $_POST['logtype'];
+
+        if ($type == 'Admin') {
+            $sql = "SELECT * FROM admin_details WHERE (name='$name' OR email='$name') AND password='$pass'";
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) == 1) {
+                session_start();
+                $_SESSION['username'] = $name;
+                $_SESSION['password'] = $pass;
+                $_SESSION['type'] = $type;
+                header("location:welcome.php");
+            } else {
+                $loginError = true;
+            }
+        } else {
+            $sql = "SELECT * FROM user_details WHERE (name='$name' OR email='$name') AND password='$pass'";
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_assoc($result);
+
+            if (mysqli_num_rows($result) == 1 && password_verify($pass, $row['password'])) {
+                session_start();
+                $_SESSION['username'] = $name;
+                $_SESSION['password'] = $pass;
+                $_SESSION['type'] = $type;
+                header("location:welcome.php");
+            } else {
+                $loginError = true;
+            }
+        }
     }
-    $conn->close();
+    
 }
 
 ?>
@@ -111,6 +162,13 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                 </div>';
             }
 
+            if ($loginError == true) {
+                echo '<div class="alert alert-danger alert-dismissible fade show position-absolute top-0 end-0 m-3 z-3" role="alert" style="width: auto;">
+                <strong>Invalid Credentials!</strong> Please check your username/email and password.
+                <button type="button" class="btn-close btn-primary" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+            }
+
         ?> 
 
         <div class="section">
@@ -127,9 +185,11 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                                         <div class="center-wrap">
                                             <div class="section text-center">
                                                 <h2 class="mb-4 pb-3">Log In</h2>
-                                                <form action="login.php" method="POST">
+                                                <form action="index.php" method="POST">
+                                                    <input type="hidden" name="form_type" value="login">
+
                                                         <div class="form-group">
-                                                            <input type="text" name="loguser" class="form-style" placeholder="Your Username" id="loguser" autocomplete="off" required>
+                                                            <input type="text" name="loguser" class="form-style" placeholder="Username/Email" id="loguser" autocomplete="off" required>
                                                             <i class="input-icon fa-solid fa-user"></i>
                                                         </div>	
                                                         <div class="form-group mt-2">
@@ -158,6 +218,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                                             <div class="section text-center">
                                                 <h2 class="mb-4 pb-3" style="position: relative; top: 10px;">Sign Up</h2>
                                                 <form action="index.php" method="POST">
+                                                    <input type="hidden" name="form_type" value="signup">
+
                                                         <div class="form-group">
                                                             <input type="text" name="logname" class="form-style" placeholder="Your Name" id="logname" autocomplete="off" required>
                                                             <i class="input-icon fa-solid fa-user"></i>

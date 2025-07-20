@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $type = $_POST['logtype'];
 
     if ($type == 'Admin') {
-        $sql = "SELECT * FROM admin_details WHERE name='$name' AND password='$pass'";
+        $sql = "SELECT * FROM admin_details WHERE (name='$name' OR email='$name') AND password='$pass'";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) == 1) {
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $loginError = true;
         }
     } else {
-        $sql = "SELECT * FROM user_details WHERE name='$name'";
+        $sql = "SELECT * FROM user_details WHERE (name='$name' OR email='$name') AND password='$pass'";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
 
@@ -62,33 +62,14 @@ mysqli_close($conn);
 </head>
 <body>
     
-    <div class="row">
-
-        <div class="col-md-6 left-box" style="background-color: black;">
-            <img src="images/logo5.png" alt="" class="title-pic">
-            <img src="images/logo2.png" alt="" class="title-pic-2">
-            <img src="images/logo3.png" alt="" class="title-pic">
-        </div>
-        <div class="col-md-6 right-box" >
-            <div class="container box">
-                <?php
-                        if($loginError==true)
-                        {
-                            echo '<h2>Invalid Login Credentials</h2>
-                            <hr>
-                            <h4>Please Check your Username and Password
-                                <br>
-                                or If you dont have an Account,Please do create One.
-                            </h4>
-                            <button class="btn btn-dark"><a href="index.php">Back</a></button>';
-                        }
-                    ?> 
-                    
-                   
-            </div>
-                
-        </div>
-    </div>
+    <?php
+        if($loginError==true)
+        {
+            $_SESSION['login_fail'] = true;
+            header("Location: index.php");
+            exit();
+        }
+    ?> 
     
     
 </body>

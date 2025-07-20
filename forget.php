@@ -6,7 +6,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     include '_dbconnect.php';
     $name=$_POST['loguser'];
 
-    $sql="SELECT * from user_details where name='$name'";
+    $sql = "SELECT * FROM user_details WHERE name='$name' OR email='$name'";
     $result=mysqli_query($conn,$sql);
 
     if($result->num_rows==1)
@@ -54,10 +54,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             <?php
                 if($showError==true)
                 {
-                    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Invalid Username</strong>....Seems like You dont have an account with this username,try with another username.
-                    or If you dont have an Account,Please do create One.
-                    <button type="button" class="btn-close btn-primary" data-bs-dismiss="alert" aria-label="Close"></button>
+                    echo'<div class="alert alert-danger alert-dismissible fade show position-absolute top-0 end-0 m-3 z-3" role="alert" style="width: auto;">
+                    <strong>Invalid Username</strong>....Seems like You dont have an account with this username/Email
                     </div>';
                 }
             ?>
@@ -66,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                  <h2>Recover Your Account</h2>
                  <form action="forget.php" method="POST">
                     <div class="form-group">
-                        <input type="text" name="loguser" class="form-style" placeholder="Enter Your Registered Username" id="loguser" autocomplete="off" required>
+                        <input type="text" name="loguser" class="form-style" placeholder="UserName/Email" id="loguser" autocomplete="off" required>
                         <i class="input-icon fa-solid fa-user"></i>
                     </div>
                     <input type="submit" class="btn mt-4" value="Verify">
@@ -77,6 +75,16 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                 
         </div>
     </div>
+
+    <script >
+        setTimeout(() => {
+        const alert = document.querySelector('.alert');
+        if(alert){
+            alert.classList.remove('show');
+            alert.classList.add('fade');
+        }
+        }, 1500); 
+    </script>
     
     
 </body>

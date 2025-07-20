@@ -1,7 +1,6 @@
 <?php
  $showAlert=false;
- $showError=false;
- $flag=true;     
+ $showError=false; 
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {
     include '_dbconnect.php';
@@ -22,16 +21,16 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     
             $result=mysqli_query($conn,$sql);
             
-            if($result)
-            {
-                $showAlert=true;
-                echo "hello";
+            if ($result) {
+                $_SESSION['pass_updated'] = true;
+                header("Location: index.php");
+                exit();
             }
+
         }
     
         else{
             $showError=true;
-            echo "hello world";
         }
     }
     session_unset();
@@ -70,51 +69,68 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         <div class="col-md-6 right-box" >
            
             <?php
-                if($flag==true)
-                {
-                    echo '                           <div  class="alert alert-success alert-dismissible fade show" role="alert" >
-                    <strong>Sucessfully Verified</strong>...Now you can update your Account password
-                    <button type="button" class="btn-close btn-primary" data-bs-dismiss="alert" aria-label="Close"></button>
-                     </div>';
-                      $flag=false;
-                }
                 
                 if($showAlert==true)
                 {
-                    echo '<div  class="alert alert-success alert-dismissible fade show" role="alert" >
-                    <strong>Congratulations!! </strong>Your Account is Updated Successfully 
-                    <button type="button" class="btn-close btn-primary" data-bs-dismiss="alert" aria-label="Close"></button>
+                    echo'<div class="alert alert-success alert-dismissible fade show position-absolute top-0 end-0 m-3 z-3" role="alert" style="width: auto;">
+                    <strong>Congratulations!! </strong>Your Password is Updated Successfully 
                     </div>';
                 }
+
                 else if($showError==true)
                 {
-                    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Account Updation Failed</strong>.... Make sure that You have entered the same password in both the feilds 
-                    <button type="button" class="btn-close btn-primary" data-bs-dismiss="alert" aria-label="Close"></button>
+                    echo'<div class="alert alert-danger alert-dismissible fade show position-absolute top-0 end-0 m-3 z-3" role="alert" style="width: auto;">
+                    <strong>Account Updation Failed</strong>.... Make sure that You have entered the same password in both the Fields
                     </div>';
                 }
 
             ?>
 
             <button class="btn btn-light home" style="background-image: linear-gradient(to right, #CC00CC , #660066);"><i class="fa-solid fa-house icon "></i><a href="index.php">Home</a></button>
-            <div class="container box">
+            <div class="container box c1">
                  <h2>Recover Your Account</h2>
                  <form action="update.php" method="POST">
                     <div class="form-group">
-                        <input type="text" name="logpass" class="form-style" placeholder="Your Password" id="loguser" autocomplete="off" required>
+                        <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="loguser" autocomplete="off" required>
                         <i class="input-icon fa-solid fa-lock"></i>
+                        <span class="toggle-password"><i class="fas fa-eye" onclick="togglePassword('loguser', this)"></i></span>
                     </div>
                     <div class="form-group">
-                        <input style="margin-top: 20px;" type="text" name="logpass1" class="form-style" placeholder="Confirm Your Password" id="loguser" autocomplete="off" required>
+                        <input style="margin-top: 20px;" type="password" name="logpass1" class="form-style" placeholder="Confirm Your Password" id="loguser1" autocomplete="off" required>
                         <i class="input-icon fa-solid fa-lock" style="margin-top: 30px;"></i>
+                        <span class="toggle-password"><i class="fas fa-eye" style="padding-top:23px;" onclick="togglePassword('loguser1', this)"></i></span>
                     </div>
-                    <input type="submit" class="btn mt-4" value="submit">
+                    <input type="submit" class="btn mt-4" value="Submit">
                  </form>   
                    
             </div>
                 
         </div>
     </div>
+
+    <script >
+        setTimeout(() => {
+        const alert = document.querySelector('.alert');
+        if(alert){
+            alert.classList.remove('show');
+            alert.classList.add('fade');
+        }
+        }, 2500); 
+    </script>
+
+    <script>
+        function togglePassword(id, icon) {
+            const input = document.getElementById(id);
+            if (!input) {
+            console.error(`Input with id="${id}" not found`);
+            return;
+            }
+            const isPassword = input.type === 'password';
+            input.type = isPassword ? 'text' : 'password';
+            icon.classList.toggle('fa-eye');
+            icon.classList.toggle('fa-eye-slash');
+        }
+    </script>
     
     
 </body>
