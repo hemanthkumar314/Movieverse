@@ -53,14 +53,7 @@
                             <!-- <li><a href="#" class="acc1">Account</a></li> -->
                             <li>
                                 <?php
-                                //     $name=$_SESSION['username'];
-
-                                // echo '      <form action="account.php" method="POST">
-                                // <select name="username" id="select-val"  style="position: relative; color:black; display:none;" required>
-                                // <option  class="form-style">'.$name.'</option>
-                                // </select>
-                                // <input type="submit"  class="btn btn-dark" style=" background-color:black" value="Account">
-                                // </form>';
+                                
                                 ?>
                                 <form action="account.php" method="POST">
                                     <input type="submit" name="acc" class="btn btn-dark sub-btn" value="Account">
@@ -79,6 +72,11 @@
                 <!-- END OF HEADER -->
 
                 <!-- MAIN CONTAINER -->
+                 <?php
+                    session_start();
+                    $name = $_SESSION['genre-value']; 
+                ?>
+                <h1 class="title"><?php echo $name; ?> Movies</h1>
                 <div class="card-container">
                         <?php
                             $name=$_SESSION['genre-value'];
@@ -87,7 +85,7 @@
                             if($_SESSION['username'])
                             {
                                 $genre=$_SESSION['genre-value'];
-                                $sql="SELECT * FROM movies where genre like '%$name%'";
+                                $sql="SELECT * FROM movies where genre like '%$name%' ORDER BY year";
                                 $result=mysqli_query($con,$sql);
                             
                             if($_SESSION['type']=='Admin')
@@ -106,11 +104,11 @@
                                         <h5 class="rate">'. $row["rating"]. '</h5>
                                         <h5 class="dur">'. $row["duration"]. 'min</h5>
                                         <h6 class="des" style="margin-left: 10px;">'.$row['description'].'</h6>
-                                        <form action="edit.php" method="POST">
+                                       <form action="edit.php" method="POST">
                                             <select name="mov-value" id="select-val"  style="position: relative; color:black; display:none;" required>
                                                 <option  class="form-style">'.$row['mov_id'].'</option>
                                             </select>
-                                            <input type="submit"  class="btn btn-dark" style="margin-bottom: 2%; left:5%; top: 35px; position: relative; background-color:black" value="Edit">
+                                            <input type="submit"  class="btn btn-dark" style="margin-bottom: 2%; left:3.5%; top: 10px; position: relative; background-color:black" value="Edit">
                                         </form>
                                     </div>
                                 </div>

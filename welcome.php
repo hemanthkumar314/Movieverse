@@ -1,10 +1,14 @@
 <?php
 
 session_start();
-// if(isset($_SESSION['username']))
-// {
-//     echo "Welcome to Home page MR.".$_SESSION['username'];
-// }
+if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
+    header("location:index.php");
+    exit();
+}
+
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
 
 include '_dbmovconnect.php';
 
